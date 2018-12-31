@@ -29,7 +29,7 @@ export class UpdateEntryComponent implements OnInit {
     this.dialogRef.close();
   }
   save(){
-    this.service.updateWord('this.id', this.form.value).subscribe((data) => {
+    this.service.updateWord('this.wrongWord', this.form.value).subscribe((data) => {
         //result here
     })
   }

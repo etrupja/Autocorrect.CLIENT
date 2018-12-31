@@ -10,14 +10,12 @@ export class WordService {
 
   constructor(private http: HttpClient) { }
 
-  getWord(id){
-    return this.http.get(this.baseUrl+'/'+id);
+  getWord(wrongWord){
+    console.log('getWord, wrongWord = ', wrongWord);
+    return this.http.get(this.baseUrl+'/'+wrongWord);
   }
 
   getAll(){
-     ('getAll() executed!');
-     (this.baseUrl);
-
     return this.http.get(this.baseUrl);
   }
 
@@ -25,11 +23,11 @@ export class WordService {
     return this.http.post(this.baseUrl, word);
   }
 
-  updateWord(id, word){
-    return this.http.put(this.baseUrl+'/'+id,word);
+  updateWord(wrongWord, word){
+    return this.http.put(this.baseUrl+'/'+wrongWord,word);
   }
 
-  deleteWord(id){
-    return this.http.delete(this.baseUrl+'/'+id);
+  deleteWord(wrongWord){
+    return this.http.delete(this.baseUrl+'/'+wrongWord);
   }
 }

@@ -10,23 +10,20 @@ import { WordService } from '../word.service';
 export class DeleteEntryComponent implements OnInit {
 
   word ={
-    description:'',
-    value:0,
-    isExpense:false
+    wrongWord:'',
+    rightWord:''
   }
-  id;
+  wrongWord;
 
   constructor(private route:ActivatedRoute,
               private service:WordService,
               private router:Router) { }
 
   ngOnInit() {
-    this.id = this.route.snapshot.paramMap.get('id');
-    this.service.getWord(this.id).subscribe((data:any) => {
-       (data);
-      this.word.description = data.WrongWord;
-      this.word.isExpense = data.RightWord;
-      this.word.value = data.Value;
+    this.wrongWord = this.route.snapshot.paramMap.get('wrongWord');
+    this.service.getWord(this.wrongWord).subscribe((data:any) => {
+      this.word.wrongWord = data.wrongWord;
+      this.word.rightWord = data.rightWord;
     })
   }
 
@@ -35,7 +32,7 @@ export class DeleteEntryComponent implements OnInit {
   }
 
   confirm(){
-    this.service.deleteWord(this.id).subscribe((data)=>{
+    this.service.deleteWord(this.wrongWord).subscribe((data)=>{
        (data);
     })
   }

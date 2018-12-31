@@ -1,5 +1,5 @@
 <mat-form-field>
-  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Kerko fjalën">
 </mat-form-field>
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   <ng-container matColumnDef="WrongWord">
@@ -16,7 +16,7 @@
           <button (click)="updateWord(element)" mat-raised-button color="primary">
             <mat-icon color="white">edit</mat-icon> <b>Edit</b>
           </button>
-          <button [routerLink]="['/delete-word',element.Id]" mat-raised-button color="warn">
+          <button [routerLink]="['/delete-word',element.wrongWord]" mat-raised-button color="warn">
             <mat-icon color="white">delete_sweep</mat-icon><b>Delete</b>
           </button>
       </td>

@@ -15,7 +15,7 @@ const routes:Routes = [
     {path:'', component:WordsComponent},
     {path:'words', component:WordsComponent},
     {path:'new-word', component:NewEntryComponent},
-    {path:'delete-word/:id', component:DeleteEntryComponent},
+    {path:'delete-word/:wrongWord', component:DeleteEntryComponent},
     {path:'register', component:RegisterComponent},
     {path:'login', component:LoginComponent},
 ]
