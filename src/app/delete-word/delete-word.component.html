@@ -1,0 +1,20 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Are you sure you want to delete this word?</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item>
+        <b>WrongWord: </b> {{word.description}}
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item [ngStyle]="word.isExpense ? {color:'red'} : {color:'green'}">
+        <b>Entry Type: </b> {{(word.isExpense) ? 'Expense' : 'Income'}}
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-flat-button (click)="cancel()">Cancel</button>
+    <button mat-raised-button color="warn" (click)="confirm()">Confirm</button>
+  </mat-card-actions>
+</mat-card>

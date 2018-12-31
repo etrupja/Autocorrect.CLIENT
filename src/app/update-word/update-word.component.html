@@ -1,0 +1,14 @@
+<h2 mat-dialog-title>Update word</h2>
+<mat-dialog-content [formGroup]="form">
+  <mat-form-field class="new-word-field" >
+    <input matInput placeholder="Fjala gabim" formControlName="wrongWord">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="new-word-field">
+    <input matInput placeholder="Fjala e sakte" formControlName="rightWord">
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button class="mat-raised-button" (click)="close()">Close</button>
+  <button class="mat-raised-button mat-primary" (click)="save()">Save</button>
+</mat-dialog-actions>

@@ -1,0 +1,15 @@
+<mat-card>
+  <span>Shto fjale të re</span>
+  <form [formGroup]="entryForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="new-word-field" >
+      <input matInput placeholder="Fjala e sakte" formControlName="rightWord">
+    </mat-form-field>
+    
+    <mat-form-field class="new-word-field">
+      <input matInput placeholder="Fjala gabim" formControlName="wrongWord">
+    </mat-form-field>
+
+    <button mat-raised-button [disabled]="!entryForm.valid">Krijo</button>
+
+  </form>
+</mat-card>
