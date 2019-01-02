@@ -18,7 +18,7 @@ export class NewEntryComponent {
 
   onSubmit(){
     this.service.createWord(this.entryForm.value).subscribe((data) => {
-       //operations here
+      console.log("data - ",data);
     })
   }
 

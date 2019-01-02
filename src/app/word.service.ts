@@ -16,7 +16,7 @@ export class WordService {
   }
 
   getAll(){
-    return this.http.get(this.baseUrl);
+    return this.http.get(this.baseUrl+'/getallwords');
   }
 
   createWord(word){
