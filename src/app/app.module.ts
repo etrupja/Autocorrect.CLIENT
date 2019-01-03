@@ -18,7 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import {MatButtonModule, MatInputModule, MatCardModule, MatSelectModule, 
   MatTableModule, MatToolbarModule, MatDialogModule, MatListModule,
-MatSortModule, MatPaginatorModule, MatIconModule} from '@angular/material';
+MatSortModule, MatPaginatorModule, MatIconModule, MatProgressSpinnerModule} from '@angular/material';
 
 //components
 import { NewEntryComponent } from './new-word/new-word.component';
@@ -30,7 +30,9 @@ import { LoginComponent } from './login/login.component';
 //forms
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 
-
+// Spinner module & Toastr
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { ToastrModule } from 'ng6-toastr-notifications';
 
 @NgModule({
   declarations: [
@@ -52,9 +54,11 @@ import {ReactiveFormsModule, FormsModule} from '@angular/forms';
     MatInputModule, MatCardModule, MatSelectModule, MatToolbarModule,
     MatDialogModule, MatListModule, MatSortModule, MatPaginatorModule,
     MatIconModule,
-
+    //spinner
+    NgxSpinnerModule, 
+    //forms
     ReactiveFormsModule, FormsModule,
-    AppRouterModule
+    AppRouterModule, ToastrModule.forRoot()
   ],
   entryComponents:[UpdateEntryComponent],
   providers: [WordService, AuthService],

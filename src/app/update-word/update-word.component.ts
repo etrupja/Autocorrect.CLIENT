@@ -2,6 +2,9 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { WordService } from '../word.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrManager } from 'ng6-toastr-notifications';
+import { DISABLED } from '@angular/forms/src/model';
 
 @Component({
   selector: 'app-update-word',
@@ -11,16 +14,17 @@ import { WordService } from '../word.service';
 export class UpdateEntryComponent implements OnInit {
 
   form:FormGroup;
+  wrongWord;
 
   constructor(private fb: FormBuilder,
               private dialogRef: MatDialogRef<UpdateEntryComponent>,
               @Inject(MAT_DIALOG_DATA){WrongWord, RightWord},
-              private service:WordService) {
-                console.log(WrongWord);
-                console.log(RightWord);
-                
+              private service:WordService,
+              private spinner: NgxSpinnerService,
+              public toastr: ToastrManager) {
+                this.wrongWord = WrongWord;
                 this.form = fb.group({
-                  wrongWord: [WrongWord, Validators.required],
+                  wrongWord: [{value: WrongWord, disabled: true}, Validators.required],
                   rightWord: [RightWord, Validators.required]
                 });
   }
@@ -29,8 +33,16 @@ export class UpdateEntryComponent implements OnInit {
     this.dialogRef.close();
   }
   save(){
-    this.service.updateWord('this.wrongWord', this.form.value).subscribe((data) => {
-        //result here
+    this.form.value.wrongWord = this.wrongWord;
+    
+    this.spinner.show();
+    this.service.updateWord(this.form.value.wrongWord, this.form.value).subscribe((data) => {
+      this.spinner.hide();
+      this.toastr.successToastr('Fjala u perditesua me sukses', 'Success!');
+      this.dialogRef.close();
+    }, err => {
+      this.spinner.hide();
+      this.toastr.errorToastr('Fjala nuk u perditesua.', 'Error!');
     })
   }
 

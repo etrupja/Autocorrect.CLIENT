@@ -3,6 +3,7 @@ import { WordService } from '../word.service';
 import { MatTableDataSource, MatDialog, MatSort, MatPaginator } from '@angular/material';
 import { WordElement } from '../interfaces/WordElement';
 import { UpdateEntryComponent } from '../update-word/update-word.component';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-words',
@@ -18,13 +19,18 @@ export class WordsComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private service:WordService,
-              private dialog:MatDialog) { }
+              private dialog:MatDialog,
+              private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
+    this.spinner.show();
     this.service.getAll().subscribe((data) => {
       this.dataSource = new MatTableDataSource<WordElement>(data as WordElement[]);
       this.dataSource.paginator = this.paginator;
-    })
+      this.spinner.hide();
+    }, err => {
+      this.spinner.hide();
+    });
   }
 
   applyFilter(filterValue: string){
@@ -32,7 +38,6 @@ export class WordsComponent implements OnInit {
   }
 
   updateWord(word){
-    console.log('word - ', word);
     this.dialog.open(UpdateEntryComponent, {
       data: {
         WrongWord:word.wrongWord,
