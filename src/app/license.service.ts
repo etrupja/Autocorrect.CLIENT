@@ -27,7 +27,7 @@ export class LicenseService {
     const url = window.URL.createObjectURL(new Blob([response]))
       const link = document.createElement('a');
       link.href = url;
-      link.setAttribute('download', 'license.lic');
+      link.setAttribute('download', 'License.lic');
       document.body.appendChild(link);
       link.click();
   }
