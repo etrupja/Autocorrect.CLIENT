@@ -5,17 +5,37 @@
   type="ball-clip-rotate-multiple">
 </ngx-spinner>
 
-<mat-card>
-  <span>Shto fjale të re</span>
-  <form [formGroup]="entryForm" (ngSubmit)="onSubmit()">
-    <mat-form-field class="new-word-field" >
-      <input matInput placeholder="Fjala gabim" formControlName="wrongWord">
-    </mat-form-field>
-    
-    <mat-form-field class="new-word-field">
-      <input matInput placeholder="Fjala e sakte" formControlName="rightWord">
-    </mat-form-field>
-
-    <button mat-raised-button [disabled]="!entryForm.valid">Krijo</button>
-  </form>
-</mat-card>
+<div class="content">
+    <div class="container-fluid" data-color="azure" >
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">Krijo fjale te re</h4>
+              <p class="card-category">Jepni fjalen gabim dhe ate te sakte.</p>
+            </div>
+            <div class="card-body">
+              <form [formGroup]="entryForm" (ngSubmit)="onSubmit()">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Fjala gabim</label>
+                      <input type="text" class="form-control" formControlName="wrongWord">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Fjala e sakte</label>
+                      <input type="text" class="form-control" formControlName="rightWord">
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary pull-right" [disabled]="!entryForm.valid">Shto fjalen</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,10 +1,29 @@
-<mat-toolbar color="primary">
-  <button mat-button routerLink="/">Autocorrect </button>
-  <button mat-button routerLink="/words">Fjalet</button>
-  <button mat-button routerLink="/new-word">Krijo fjale</button>
-  <span style="flex: 1 1 auto"></span>
-  <!-- <button mat-button *ngIf="auth.isAuthenticated" >Welcome {{auth.getUserName}}</button>
-  <button mat-button *ngIf="auth.isAuthenticated" (click)="auth.logout()">Logout</button>
-  <button mat-button *ngIf="!auth.isAuthenticated" routerLink="/register">Register</button>-->
-  <button mat-button routerLink="/license">License</button> 
-</mat-toolbar>
+<div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+  <div class="logo">
+    <a routerLink="/" class="simple-text logo-normal">
+      Autocorrect
+    </a>
+  </div>
+  <div class="sidebar-wrapper">
+    <ul class="nav">
+      <li class="nav-item active  ">
+        <a class="nav-link" routerLink="/words">
+          <i class="material-icons">library_books</i>
+          <p>Fjalët</p>
+        </a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" routerLink="/new-word">
+          <i class="material-icons" >create</i>
+          <p>Krijo fjalë</p>
+        </a>
+      </li>
+      <li class="nav-item active-pro ">
+        <a class="nav-link" routerLink="/license">
+          <i class="material-icons">unarchive</i>
+          <p>Licensa</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
