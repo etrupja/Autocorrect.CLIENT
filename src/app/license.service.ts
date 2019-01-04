@@ -12,7 +12,7 @@ export class LicenseService {
   constructor(private http: HttpClient) { }
 
   createLicense(word){
-    return this.http.post(this.baseUrl+'/new', word);
+    return this.http.post(this.baseUrl+'/new', word, {responseType: 'blob'});
   }
 
   isValid(licenseId){
@@ -22,4 +22,14 @@ export class LicenseService {
   setUsage(licenseId){
     return this.http.post(this.baseUrl+'/setusage/',licenseId);
   }
+
+  downloadLicense(response: Blob){
+    const url = window.URL.createObjectURL(new Blob([response]))
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'license.lic');
+      document.body.appendChild(link);
+      link.click();
+  }
+
 }

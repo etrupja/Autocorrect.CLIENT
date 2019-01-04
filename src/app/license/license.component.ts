@@ -25,14 +25,16 @@ export class LicenseComponent{
 
   onSubmit(){
     this.spinner.show();
-    this.service.createLicense(this.licenseForm.value).subscribe((data) => {
+    this.service.createLicense(this.licenseForm.value).subscribe((response) => {
       this.spinner.hide();
       this.toastr.successToastr('Licensa u krijua me sukses!', 'Success!');
-      console.log(data);
-      // this.router.navigate(['/']);
+
+      //license download
+      this.service.downloadLicense(response);
+
     }, err => {
       this.toastr.errorToastr('Licensa nuk u krijua', 'Error!');
-      console.log(err);
+      console.log('Error - ',err);
       this.spinner.hide();
     })
   }
