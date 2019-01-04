@@ -8,6 +8,7 @@ import {RegisterComponent} from './register/register.component';
 import {LoginComponent} from './login/login.component';
 
 import { NgModule } from '@angular/core';
+import { LicenseComponent } from './license/license.component';
 
 
 //route
@@ -18,6 +19,7 @@ const routes:Routes = [
     {path:'delete-word/:wrongWord', component:DeleteEntryComponent},
     {path:'register', component:RegisterComponent},
     {path:'login', component:LoginComponent},
+    {path:'license', component:LicenseComponent},
 ]
 
 @NgModule({

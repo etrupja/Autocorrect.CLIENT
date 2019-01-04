@@ -10,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 //services
 import {WordService} from './word.service'; 
 import {AuthService} from './auth.service';
+import { LicenseService } from './license.service';
 
 import { AppRouterModule } from './app-router.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -33,6 +34,7 @@ import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 // Spinner module & Toastr
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ToastrModule } from 'ng6-toastr-notifications';
+import { LicenseComponent } from './license/license.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,8 @@ import { ToastrModule } from 'ng6-toastr-notifications';
     UpdateEntryComponent,
     DeleteEntryComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    LicenseComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +64,7 @@ import { ToastrModule } from 'ng6-toastr-notifications';
     AppRouterModule, ToastrModule.forRoot()
   ],
   entryComponents:[UpdateEntryComponent],
-  providers: [WordService, AuthService],
+  providers: [WordService, AuthService, LicenseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
