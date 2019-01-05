@@ -5,11 +5,11 @@ import { AuthenticationService } from "./auth.service";
 export class AuthGuard implements CanActivate {
   constructor(private authService: AuthenticationService) {}
   canActivate(): boolean {
-    // if(this.authService.isLoggedIn()) {
-    //     return true;
-    // }
+    if(this.authService.isLoggedIn()) {
+        return true;
+    }
 
-    //this.authService.startAuthentication();
-    return true;
+    this.authService.startAuthentication();
+    return false;
 }
 }

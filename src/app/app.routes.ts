@@ -13,13 +13,13 @@ const routes: Routes = [
     { path: '', component: WordsComponent,canActivate: [AuthGuard] },
     { path: 'home', component: WordsComponent, canActivate: [AuthGuard] },
     { path: 'auth-callback', component: AuthCallbackComponent },
-    {path:'', component:WordsComponent},
-    {path:'words', component:WordsComponent},
-    {path:'new-word', component:NewEntryComponent},
-    {path:'delete-word/:wrongWord', component:DeleteEntryComponent},
-    {path:'register', component:RegisterComponent},
-    {path:'login', component:LoginComponent},
-    {path:'license', component:LicenseComponent},
+    {path:'', component:WordsComponent, canActivate: [AuthGuard]},
+    {path:'words', component:WordsComponent, canActivate: [AuthGuard]},
+    {path:'new-word', component:NewEntryComponent, canActivate: [AuthGuard]},
+    {path:'delete-word/:wrongWord', component:DeleteEntryComponent, canActivate: [AuthGuard]},
+    {path:'register', component:RegisterComponent, canActivate: [AuthGuard]},
+    {path:'login', component:LoginComponent, canActivate: [AuthGuard]},
+    {path:'license', component:LicenseComponent, canActivate: [AuthGuard]},
 ];
 
 export const AppRoutes = RouterModule.forRoot(routes);
