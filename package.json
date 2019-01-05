@@ -23,6 +23,7 @@
     "@angular/platform-browser-dynamic": "~7.0.0",
     "@angular/router": "~7.0.0",
     "core-js": "^2.5.4",
+    "angular-oauth2-oidc": "^4.0.3",
     "ng6-toastr-notifications": "^1.0.4",
     "ngx-loading": "^2.0.1",
     "ngx-spinner": "^6.1.2",
@@ -48,6 +49,7 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
+    "oidc-client": "^1.5.2",
     "typescript": "~3.1.1"
   }
 }

@@ -2,17 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { WordsComponent } from './words/words.component';
-import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from './header/header.component';
+import { WordsComponent } from './components/words/words.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
 
 
 //services
-import {WordService} from './word.service'; 
-import {AuthService} from './auth.service';
-import { LicenseService } from './license.service';
+import {WordService} from './shared/services/word.service'; 
+import {AuthenticationService} from './shared/services/auth.service';
+import { LicenseService } from './shared/services/license.service';
+import { AuthGuard } from './shared/services/auth-guard.service';
 
-import { AppRouterModule } from './app-router.module';
 import { HttpClientModule } from '@angular/common/http';
 
 //material design
@@ -22,11 +22,12 @@ import {MatButtonModule, MatInputModule, MatCardModule, MatSelectModule,
 MatSortModule, MatPaginatorModule, MatIconModule, MatProgressSpinnerModule} from '@angular/material';
 
 //components
-import { NewEntryComponent } from './new-word/new-word.component';
-import { UpdateEntryComponent } from './update-word/update-word.component';
-import { DeleteEntryComponent } from './delete-word/delete-word.component';
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
+import { NewEntryComponent } from './components/new-word/new-word.component';
+import { UpdateEntryComponent } from './components/update-word/update-word.component';
+import { DeleteEntryComponent } from './components/delete-word/delete-word.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
+import { AuthCallbackComponent } from './components/auth-callback/auth-callback.component';
 
 //forms
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
@@ -34,7 +35,12 @@ import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 // Spinner module & Toastr
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ToastrModule } from 'ng6-toastr-notifications';
-import { LicenseComponent } from './license/license.component';
+import { LicenseComponent } from './components/license/license.component';
+
+import { AppRoutes } from "./app.routes";
+import { APP_CONFIG, LiveConfig,LocalConfig } from "./shared/app.config";
+import { environment } from '../environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -47,7 +53,8 @@ import { LicenseComponent } from './license/license.component';
     DeleteEntryComponent,
     RegisterComponent,
     LoginComponent,
-    LicenseComponent
+    LicenseComponent,
+    AuthCallbackComponent
   ],
   imports: [
     BrowserModule,
@@ -61,10 +68,13 @@ import { LicenseComponent } from './license/license.component';
     NgxSpinnerModule, 
     //forms
     ReactiveFormsModule, FormsModule,
-    AppRouterModule, ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    AppRoutes
   ],
   entryComponents:[UpdateEntryComponent],
-  providers: [WordService, AuthService, LicenseService],
+  providers: [
+    { provide: APP_CONFIG, useValue: (environment.production ) ? LiveConfig : LocalConfig },
+    WordService, AuthenticationService, LicenseService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
