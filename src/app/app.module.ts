@@ -35,7 +35,8 @@ import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 // Spinner module & Toastr
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ToastrModule } from 'ng6-toastr-notifications';
-import { LicenseComponent } from './components/license/license.component';
+import { NewLicenseComponent } from './components/newlicense/newlicense.component';
+import { LicensesComponent } from './components/licenses/licenses.component';
 
 import { AppRoutes } from "./app.routes";
 import { APP_CONFIG, LiveConfig,LocalConfig } from "./shared/app.config";
@@ -55,7 +56,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     DeleteEntryComponent,
     RegisterComponent,
     LoginComponent,
-    LicenseComponent,
+    NewLicenseComponent,
+    LicensesComponent,
     AuthCallbackComponent
   ],
   imports: [

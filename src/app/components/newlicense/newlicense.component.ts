@@ -7,10 +7,10 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-license',
-  templateUrl: './license.component.html',
-  styleUrls: ['./license.component.css']
+  templateUrl: './newlicense.component.html',
+  styleUrls: ['./newlicense.component.css']
 })
-export class LicenseComponent{
+export class NewLicenseComponent{
 
   constructor(private service:LicenseService,
     private spinner: NgxSpinnerService,

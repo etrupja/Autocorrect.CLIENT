@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LicenseComponent } from './license.component';
+import { LicenseComponent } from './newlicense.component';
 
 describe('LicenseComponent', () => {
   let component: LicenseComponent;

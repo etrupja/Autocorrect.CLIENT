@@ -7,7 +7,8 @@ import {NewEntryComponent} from './components/new-word/new-word.component';
 import {DeleteEntryComponent} from './components/delete-word/delete-word.component';
 import {RegisterComponent} from './components/register/register.component';
 import {LoginComponent} from './components/login/login.component';
-import { LicenseComponent } from './components/license/license.component';
+import { NewLicenseComponent } from './components/newlicense/newlicense.component';
+import { LicensesComponent } from './components/licenses/licenses.component';
 
 const routes: Routes = [
     { path: '', component: WordsComponent,canActivate: [AuthGuard] },
@@ -19,7 +20,8 @@ const routes: Routes = [
     {path:'delete-word/:wrongWord', component:DeleteEntryComponent, canActivate: [AuthGuard]},
     {path:'register', component:RegisterComponent, canActivate: [AuthGuard]},
     {path:'login', component:LoginComponent, canActivate: [AuthGuard]},
-    {path:'license', component:LicenseComponent, canActivate: [AuthGuard]},
+    {path:'new-license', component:NewLicenseComponent, canActivate: [AuthGuard]},
+    {path:'licenses', component:LicensesComponent, canActivate: [AuthGuard]},
 ];
 
 export const AppRoutes = RouterModule.forRoot(routes);

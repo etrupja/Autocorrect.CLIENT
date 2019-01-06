@@ -13,9 +13,11 @@ export class LicenseService {
   constructor(private http: HttpClient,@Inject(APP_CONFIG) private config: AppConfig) { 
     this.baseUrl= config.apiEndpoint + '/License'
   }
-
+  getAll(){
+    return this.http.get(this.baseUrl);
+  }
   createLicense(word){
-    return this.http.post(this.baseUrl+'/new', word, {responseType: 'blob'});
+    return this.http.post(this.baseUrl, word, {responseType: 'blob'});
   }
 
   isValid(licenseId){

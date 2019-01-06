@@ -14,7 +14,7 @@ export class AppConfig {
 }
 
 export const LiveConfig: AppConfig = {
-  apiEndpoint: "https://autocorrectapi.azurewebsites.net/api",
+  apiEndpoint: "https://localhost:44387/api",
   authorityUrl: "http://autocorrectaccount.nertilpoci.com/",
    auth_redirect_uri: 'http://localhost:4200/auth-callback',
   auth_post_logout_redirect_uri: 'http://localhost:4200',
@@ -24,7 +24,7 @@ export const LiveConfig: AppConfig = {
   
 };
 export const LocalConfig: AppConfig = {
-  apiEndpoint: "https://autocorrectapi.azurewebsites.net/api",
+  apiEndpoint: "https://localhost:44387/api",
   authorityUrl: "http://autocorrectaccount.nertilpoci.com/",
    auth_redirect_uri: 'http://localhost:4200/auth-callback',
   auth_post_logout_redirect_uri: 'http://localhost:4200',
