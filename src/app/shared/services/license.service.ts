@@ -22,7 +22,7 @@ export class LicenseService {
     });
   }
   createLicense(word){
-    return this.http.post(this.baseUrl, word, {responseType: 'blob'});
+    return this.http.post(this.baseUrl+'/new', word, {responseType: 'blob'});
   }
 
   isValid(licenseId){

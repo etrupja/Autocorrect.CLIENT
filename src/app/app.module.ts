@@ -43,7 +43,10 @@ import { APP_CONFIG, LiveConfig,LocalConfig } from "./shared/app.config";
 import { environment } from '../environments/environment';
 import { TokenInterceptor } from './shared/services/token.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { PaymentComponent } from './components/payment/payment.component';
 
+//paypal module
+import { NgxPayPalModule } from 'ngx-paypal';
 
 @NgModule({
   declarations: [
@@ -58,7 +61,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     LoginComponent,
     NewLicenseComponent,
     LicensesComponent,
-    AuthCallbackComponent
+    AuthCallbackComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
@@ -70,6 +74,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     MatIconModule,
     //spinner
     NgxSpinnerModule, 
+    //paypal module
+    NgxPayPalModule,
     //forms
     ReactiveFormsModule, FormsModule,
     ToastrModule.forRoot(),

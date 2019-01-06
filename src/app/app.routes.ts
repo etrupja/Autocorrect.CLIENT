@@ -9,10 +9,12 @@ import {RegisterComponent} from './components/register/register.component';
 import {LoginComponent} from './components/login/login.component';
 import { NewLicenseComponent } from './components/newlicense/newlicense.component';
 import { LicensesComponent } from './components/licenses/licenses.component';
+import { PaymentComponent } from './components/payment/payment.component';
 
 const routes: Routes = [
     { path: '', component: LicensesComponent,canActivate: [AuthGuard] },
     { path: 'home', component: LicensesComponent, canActivate: [AuthGuard] },
+    { path: 'payment', component: PaymentComponent},
     { path: 'auth-callback', component: AuthCallbackComponent },
     {path:'', component:WordsComponent, canActivate: [AuthGuard]},
     // {path:'words', component:WordsComponent, canActivate: [AuthGuard]},
