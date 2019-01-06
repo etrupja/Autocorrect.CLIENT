@@ -40,6 +40,8 @@ import { LicenseComponent } from './components/license/license.component';
 import { AppRoutes } from "./app.routes";
 import { APP_CONFIG, LiveConfig,LocalConfig } from "./shared/app.config";
 import { environment } from '../environments/environment';
+import { TokenInterceptor } from './shared/services/token.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 @NgModule({
@@ -73,7 +75,8 @@ import { environment } from '../environments/environment';
   ],
   entryComponents:[UpdateEntryComponent],
   providers: [
-    { provide: APP_CONFIG, useValue: (environment.production ) ? LiveConfig : LocalConfig },
+    { provide: APP_CONFIG, useValue: (environment.production ) ? LiveConfig : LocalConfig }, 
+    { provide: HTTP_INTERCEPTORS, useClass:TokenInterceptor,multi:true },
     WordService, AuthenticationService, LicenseService,AuthGuard],
   bootstrap: [AppComponent]
 })
