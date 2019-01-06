@@ -16,6 +16,11 @@ export class LicenseService {
   getAll(){
     return this.http.get(this.baseUrl);
   }
+  downloadLicenseFile(id:string){
+     this.http.get(this.baseUrl+"/downloadlicense/"+id,{responseType: 'blob'}).subscribe((response:any)=>{
+      this.downloadLicense(response)
+    });
+  }
   createLicense(word){
     return this.http.post(this.baseUrl, word, {responseType: 'blob'});
   }

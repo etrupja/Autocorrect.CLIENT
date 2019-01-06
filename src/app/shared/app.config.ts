@@ -15,7 +15,7 @@ export class AppConfig {
 
 export const LiveConfig: AppConfig = {
   apiEndpoint: "https://localhost:44387/api",
-  authorityUrl: "http://autocorrectaccount.nertilpoci.com/",
+  authorityUrl: "https://localhost:44375/",
    auth_redirect_uri: 'http://localhost:4200/auth-callback',
   auth_post_logout_redirect_uri: 'http://localhost:4200',
   auth_response_type:"id_token token",
@@ -25,7 +25,7 @@ export const LiveConfig: AppConfig = {
 };
 export const LocalConfig: AppConfig = {
   apiEndpoint: "https://localhost:44387/api",
-  authorityUrl: "http://autocorrectaccount.nertilpoci.com/",
+  authorityUrl: "https://localhost:44375",
    auth_redirect_uri: 'http://localhost:4200/auth-callback',
   auth_post_logout_redirect_uri: 'http://localhost:4200',
   auth_response_type:"id_token token",

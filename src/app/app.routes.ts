@@ -11,15 +11,15 @@ import { NewLicenseComponent } from './components/newlicense/newlicense.componen
 import { LicensesComponent } from './components/licenses/licenses.component';
 
 const routes: Routes = [
-    { path: '', component: WordsComponent,canActivate: [AuthGuard] },
-    { path: 'home', component: WordsComponent, canActivate: [AuthGuard] },
+    { path: '', component: LicensesComponent,canActivate: [AuthGuard] },
+    { path: 'home', component: LicensesComponent, canActivate: [AuthGuard] },
     { path: 'auth-callback', component: AuthCallbackComponent },
     {path:'', component:WordsComponent, canActivate: [AuthGuard]},
-    {path:'words', component:WordsComponent, canActivate: [AuthGuard]},
-    {path:'new-word', component:NewEntryComponent, canActivate: [AuthGuard]},
-    {path:'delete-word/:wrongWord', component:DeleteEntryComponent, canActivate: [AuthGuard]},
-    {path:'register', component:RegisterComponent, canActivate: [AuthGuard]},
-    {path:'login', component:LoginComponent, canActivate: [AuthGuard]},
+    // {path:'words', component:WordsComponent, canActivate: [AuthGuard]},
+    // {path:'new-word', component:NewEntryComponent, canActivate: [AuthGuard]},
+    // {path:'delete-word/:wrongWord', component:DeleteEntryComponent, canActivate: [AuthGuard]},
+    // {path:'register', component:RegisterComponent, canActivate: [AuthGuard]},
+    // {path:'login', component:LoginComponent, canActivate: [AuthGuard]},
     {path:'new-license', component:NewLicenseComponent, canActivate: [AuthGuard]},
     {path:'licenses', component:LicensesComponent, canActivate: [AuthGuard]},
 ];

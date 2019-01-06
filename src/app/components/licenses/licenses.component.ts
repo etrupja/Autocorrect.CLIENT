@@ -14,7 +14,7 @@ import { LicenseService } from 'src/app/shared/services/license.service';
 })
 export class LicensesComponent implements OnInit {
 
-  displayedColumns: string[] = ['MaxUtilization', 'Utilized', 'ExpiresOn']
+  displayedColumns: string[] = ['MaxUtilization', 'Utilized', 'ExpiresOn','Actions']
   dataSource;
 
   @ViewChild(MatSort) sort: MatSort;
@@ -39,13 +39,8 @@ export class LicensesComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  updateWord(word){
-    this.dialog.open(UpdateEntryComponent, {
-      data: {
-        WrongWord:word.wrongWord,
-        RightWord:word.rightWord
-      }
-    })
+  downloadLicense(id:string){
+   this.service.downloadLicenseFile(id);
   }
 
 }
