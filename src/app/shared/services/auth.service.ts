@@ -4,9 +4,11 @@ import {BehaviorSubject} from 'rxjs';
 import { UserManager,WebStorageStateStore, UserManagerSettings, User } from 'oidc-client';
 @Injectable()
 export class AuthenticationService {
-  private user: User = null;
+  private _user: User = null;
   private manager = new UserManager(getClientSettings(this.config));
-  
+
+  public user = new BehaviorSubject<User>(null);
+
   constructor(@Inject(APP_CONFIG) private config: AppConfig) {
    
 }
@@ -17,13 +19,13 @@ logout(){
 }
 isLoggedIn(): boolean {
   
-  return this.user != null && !this.user.expired;
+  return this._user != null && !this._user.expired;
 }
 getClaims(): any {
-  return this.user.profile;
+  return this._user.profile;
 }
 getToken(): string {
-  return this.user.access_token;
+  return this._user.access_token;
 }
 startAuthentication(): Promise<void> {
   return this.manager.signinRedirect();
@@ -34,9 +36,10 @@ getQueryStringAuthorization():string
   
 }
 completeAuthentication(): Promise<void> {
-  return this.manager.signinRedirectCallback().then(user => {
+  return this.manager.signinRedirectCallback().then(_user => {
      
-      this.user = user;
+      this._user = _user;
+      this.user.next(_user)
   });
 }
 }

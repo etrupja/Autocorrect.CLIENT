@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthenticationService } from './shared/services/auth.service'
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ExpensesClient';
+  title = 'Autocorrect';
+  username:string;
+  constructor( private authService:AuthenticationService) {
+       authService.user.subscribe(user=>{
+         this.username=user && user.profile && user.profile.name
+       })
+}
+  logout(){
+    this.authService.logout();
+  }
 }

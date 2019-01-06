@@ -17,7 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 //material design
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
-import {MatButtonModule, MatInputModule, MatCardModule, MatSelectModule, 
+import {MatButtonModule, MatInputModule, MatCardModule, MatSelectModule, MatMenuModule,
   MatTableModule, MatToolbarModule, MatDialogModule, MatListModule,
 MatSortModule, MatPaginatorModule, MatIconModule, MatProgressSpinnerModule} from '@angular/material';
 
@@ -64,7 +64,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     //material design
     BrowserAnimationsModule, MatButtonModule, MatTableModule,
     MatInputModule, MatCardModule, MatSelectModule, MatToolbarModule,
-    MatDialogModule, MatListModule, MatSortModule, MatPaginatorModule,
+    MatDialogModule, MatListModule, MatSortModule, MatPaginatorModule,MatMenuModule,
     MatIconModule,
     //spinner
     NgxSpinnerModule, 
