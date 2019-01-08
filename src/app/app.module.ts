@@ -47,6 +47,7 @@ import { PaymentComponent } from './components/payment/payment.component';
 
 //paypal module
 import { NgxPayPalModule } from 'ngx-paypal';
+import { PaymentService } from './shared/services/payment.service';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,7 @@ import { NgxPayPalModule } from 'ngx-paypal';
   providers: [
     { provide: APP_CONFIG, useValue: (environment.production ) ? LiveConfig : LocalConfig }, 
     { provide: HTTP_INTERCEPTORS, useClass:TokenInterceptor,multi:true },
-    WordService, AuthenticationService, LicenseService,AuthGuard],
+    WordService, AuthenticationService, LicenseService,PaymentService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

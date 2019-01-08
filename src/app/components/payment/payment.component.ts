@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
   import { of } from 'rxjs';
   import { PayPalConfig, PayPalEnvironment, PayPalIntegrationType } from 'ngx-paypal';
+import { PaymentService } from 'src/app/shared/services/payment.service';
+import { conditionallyCreateMapObjectLiteral } from '@angular/compiler/src/render3/view/util';
 
 
 @Component({
@@ -9,6 +11,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./payment.component.css']
 })
 export class PaymentComponent {
+
+  constructor(private service:PaymentService) { }
 
   licensePrice: string = '1000';
 
@@ -20,6 +24,14 @@ export class PaymentComponent {
         // You can access the token ID with `token.id`.
         // Get the token ID to your server-side code for use.
         console.log('Token - ',token);
+        
+        const url = 'https://localhost:44387/api/payment/charge';
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", url);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+          token: token
+        }));
       }
     });
 
