@@ -1,2 +1,2 @@
 <input type="text" class="form-control"[(ngModel)]="licensePrice" #ctrl="ngModel" required>
-<a class="btn btn-success btn-round" (click)="openCheckout()">Purchase ${{licensePrice}}</a>
+<a class="btn btn-success btn-round" (click)="openCheckout(licensePrice)">Purchase {{licensePrice}} ALL</a>
