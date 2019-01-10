@@ -7,9 +7,9 @@
 
 <mat-card>
   <span>Krijo license të re</span>
-  <form [formGroup]="licenseForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="licenseForm" (ngSubmit)="onSubmit(licenseForm)">
     <mat-form-field class="new-license-field" >
-      <input matInput placeholder="Adresa emailit" formControlName="email">
+      <input matInput placeholder="Adresa emailit" name="email" formControlName="email">
     </mat-form-field>
     
     <mat-form-field class="new-license-field">
@@ -17,9 +17,12 @@
     </mat-form-field>
 
     <mat-form-field class="new-license-field">
-      <input matInput placeholder="Numri i licensave" formControlName="maximumUtilizationCount">
+      <input matInput placeholder="Numri i përdoruesve" formControlName="maximumUtilizationCount">
     </mat-form-field>
 
-    <button mat-raised-button [disabled]="!licenseForm.valid">Krijo license</button>
+    <div class="alert alert-info" *ngIf="this.licenseForm.value.maximumUtilizationCount > 50">
+      <span>Ju lutem kontaktoni supportin për të blerë një licensë me {{this.licenseForm.value.maximumUtilizationCount}} përdorues!</span>
+    </div>
+    <button  mat-raised-button *ngIf="this.licenseForm.value.maximumUtilizationCount <= 50" [disabled]="!licenseForm.valid">Krijo license</button>
   </form>
 </mat-card>

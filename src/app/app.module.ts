@@ -43,11 +43,9 @@ import { APP_CONFIG, LiveConfig,LocalConfig } from "./shared/app.config";
 import { environment } from '../environments/environment';
 import { TokenInterceptor } from './shared/services/token.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { PaymentComponent } from './components/payment/payment.component';
 
 //paypal module
 import { NgxPayPalModule } from 'ngx-paypal';
-import { PaymentService } from './shared/services/payment.service';
 
 @NgModule({
   declarations: [
@@ -62,8 +60,7 @@ import { PaymentService } from './shared/services/payment.service';
     LoginComponent,
     NewLicenseComponent,
     LicensesComponent,
-    AuthCallbackComponent,
-    PaymentComponent
+    AuthCallbackComponent
   ],
   imports: [
     BrowserModule,
@@ -86,7 +83,7 @@ import { PaymentService } from './shared/services/payment.service';
   providers: [
     { provide: APP_CONFIG, useValue: (environment.production ) ? LiveConfig : LocalConfig }, 
     { provide: HTTP_INTERCEPTORS, useClass:TokenInterceptor,multi:true },
-    WordService, AuthenticationService, LicenseService,PaymentService, AuthGuard],
+    WordService, AuthenticationService, LicenseService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
