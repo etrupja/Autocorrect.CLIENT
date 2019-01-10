@@ -9,7 +9,6 @@ import { APP_CONFIG, AppConfig } from "../app.config";
 export class LicenseService {
 
   baseUrl: string
-
   constructor(private http: HttpClient,@Inject(APP_CONFIG) private config: AppConfig) { 
     this.baseUrl= config.apiEndpoint + '/License'
   }
@@ -21,9 +20,9 @@ export class LicenseService {
       this.downloadLicense(response)
     });
   }
-  createLicense(word){
-    return this.http.post(this.baseUrl+'/new', word, {responseType: 'blob'});
-  }
+  payAndCreateLicense(data){
+    return this.http.post(this.baseUrl+'/new', data);
+  }  
 
   isValid(licenseId){
     return this.http.get(this.baseUrl+'/isvalid/'+licenseId);
