@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ToastrManager } from 'ng6-toastr-notifications';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { LicenseService } from '../../shared/services/license.service';
 import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
+import { APP_CONFIG, AppConfig } from 'src/app/shared/app.config';
 
 @Component({
   selector: 'app-license',
@@ -11,7 +12,7 @@ import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
   styleUrls: ['./newlicense.component.css']
 })
 export class NewLicenseComponent{
-
+  baseUrl: string
   licensePrice = 2000;
   price;
   client_name = '';
@@ -21,7 +22,12 @@ export class NewLicenseComponent{
   constructor(private service:LicenseService,
     private spinner: NgxSpinnerService,
     private router:Router,
-    public toastr: ToastrManager) { }
+    public toastr: ToastrManager,
+    public licenseService: LicenseService,
+    @Inject(APP_CONFIG) private config: AppConfig) {
+      this.baseUrl= config.apiEndpoint + '/payment'
+
+     }
 
   licenseForm = new FormGroup({
     email: new FormControl('', Validators.email),
@@ -30,44 +36,29 @@ export class NewLicenseComponent{
   })
 
   onSubmit(licenseForm:NgForm) {
-    console.log(licenseForm.value);
     
     var handler = (<any>window).StripeCheckout.configure({
       key: 'pk_test_kyV742LfU6XvYlJsjx5h1lsZ',
       locale: 'auto',
       currency:'ALL',
-      token: function (token: any) {
-        token.client_name = licenseForm.value.name;
-        token.client_email = licenseForm.value.email;
-        token.maximum_utilization_count = licenseForm.value.maximumUtilizationCount;
+      token:  (token: any)=> {
+       
+        let payload ={
+          name:licenseForm.value.name,
+          email:licenseForm.value.email,
+          maximumUtilizationCount: licenseForm.value.maximumUtilizationCount,
+          token: token.id
+        }
 
-        console.log('token updated - ', token);
-        // You can access the token ID with `token.id`.
-        // Get the token ID to your server-side code for use.
-        const url = 'https://localhost:44387/api/payment/charge';
-        var xhr = new XMLHttpRequest();
-
-        xhr.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) { 
-            console.log(this.responseText); 
-            alert(this.responseText)
-            window.location.href = "http://localhost:4200/";
-          }
-          else if (this.readyState == 4 && this.status != 200) { 
-            console.log(this.responseText); 
-            alert(this.responseText)
-          } 
-          else if(this.readyState == 0){ console.log('UNSENT'); }
-          else if(this.readyState == 1){ console.log('OPENED'); }
-          else if(this.readyState == 2){ console.log('HEADERS_RECEIVED'); }
-          else if(this.readyState == 3) { console.log('LOADING'); }
-      };
-
-        xhr.open("POST", url);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.send(JSON.stringify({
-          token: token
-        }));
+        this.licenseService.payAndCreateLicense(payload).subscribe(result=>{
+          console.log(result)
+         this.toastr.infoToastr("Pagesa u krye me sukses. Navigoni tek lista licensave te shikoni licensen tuaj");
+         //TODO navigate to main list  programatically
+        },error=>{
+          console.log(error)
+          this.toastr.errorToastr("Problem duke krijuar licensen");
+        })
+       
       }
     });
 
