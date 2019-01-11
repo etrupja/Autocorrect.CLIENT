@@ -29,13 +29,13 @@ export class NewLicenseComponent{
 
      }
 
-  licenseForm = new FormGroup({
+  licenseForm:FormGroup = new FormGroup({
     email: new FormControl('', Validators.email),
     name: new FormControl('', Validators.required),
     maximumUtilizationCount: new FormControl(1, Validators.min(1))
   })
 
-  onSubmit(licenseForm:NgForm) {
+  onSubmit(licenseForm:FormGroup) {
     
     var handler = (<any>window).StripeCheckout.configure({
       key: 'pk_test_kyV742LfU6XvYlJsjx5h1lsZ',

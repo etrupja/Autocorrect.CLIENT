@@ -14,18 +14,18 @@ export class AppConfig {
 }
 
 export const LiveConfig: AppConfig = {
-  apiEndpoint: "https://localhost:44387/api",
-  authorityUrl: "https://localhost:44375/",
-   auth_redirect_uri: 'http://localhost:4200/auth-callback',
-  auth_post_logout_redirect_uri: 'http://localhost:4200',
+  apiEndpoint: "https://api.tekstsakte.com/api",
+  authorityUrl: "https://account.tekstsakte.com",
+   auth_redirect_uri: 'https://tekstsakte.com/auth-callback',
+  auth_post_logout_redirect_uri: 'https://tekstsakte.com',
   auth_response_type:"id_token token",
   auth_scope:"openid profile autocorrect",
   auth_client_id:"autocorrectclient"
   
 };
 export const LocalConfig: AppConfig = {
-  apiEndpoint: "https://localhost:44387/api",
-  authorityUrl: "https://localhost:44375",
+  apiEndpoint: "https://api.tekstsakte.com/api",
+  authorityUrl: "https://account.tekstsakte.com",
    auth_redirect_uri: 'http://localhost:4200/auth-callback',
   auth_post_logout_redirect_uri: 'http://localhost:4200',
   auth_response_type:"id_token token",
