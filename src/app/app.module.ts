@@ -46,6 +46,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 //paypal module
 import { NgxPayPalModule } from 'ngx-paypal';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { NgxPayPalModule } from 'ngx-paypal';
     LoginComponent,
     NewLicenseComponent,
     LicensesComponent,
-    AuthCallbackComponent
+    AuthCallbackComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

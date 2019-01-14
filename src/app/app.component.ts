@@ -7,7 +7,7 @@ import { AuthenticationService } from './shared/services/auth.service'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Autocorrect';
+  title = 'TekstSaktë';
   username:string;
   constructor( private authService:AuthenticationService) {
        authService.user.subscribe(user=>{
