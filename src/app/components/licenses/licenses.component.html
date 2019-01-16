@@ -21,10 +21,10 @@
    
     <ng-container matColumnDef="ExpiresOn">
         <th mat-header-cell *matHeaderCellDef> Data Skadimit </th>
-        <td mat-cell *matCellDef="let element"> {{element.expiresOn}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.expiresOn | date}} </td>
       </ng-container>
       <ng-container matColumnDef="Actions">
-          <th mat-header-cell *matHeaderCellDef> Actions </th>
+          <th mat-header-cell *matHeaderCellDef> Sharko </th>
           <td mat-cell *matCellDef="let element">
               <button (click)="downloadLicense(element.id)" mat-raised-button color="primary">
                  <b>Shkarko</b>

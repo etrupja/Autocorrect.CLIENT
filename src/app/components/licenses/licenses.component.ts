@@ -4,8 +4,8 @@ import { MatTableDataSource, MatDialog, MatSort, MatPaginator } from '@angular/m
 import { WordElement } from '../../shared/interfaces/WordElement';
 import { UpdateEntryComponent } from '../update-word/update-word.component';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { LicenseListViewModel } from 'src/app/shared/interfaces/LicenseListViewModel';
-import { LicenseService } from 'src/app/shared/services/license.service';
+import { LicenseListViewModel } from '../../shared/interfaces/LicenseListViewModel';
+import { LicenseService } from '../../shared/services/license.service';
 
 @Component({
   selector: 'app-words',

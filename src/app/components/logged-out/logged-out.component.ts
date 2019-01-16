@@ -4,17 +4,17 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth-callback',
-  templateUrl: './auth-callback.component.html',
-  styleUrls: ['./auth-callback.component.css']
+  templateUrl: './logged-out.component.html',
+  styleUrls: ['./logged-out.component.css']
 })
-export class AuthCallbackComponent implements OnInit {
+export class LoggedOutComponent implements OnInit {
 
   constructor(private authService: AuthenticationService,private router:Router,) { }
   
   ngOnInit() {
       this.authService.completeAuthentication().then(()=>{
         // var id=prompt("enter user id")
-        this.router.navigate([`licenses`]);
+        this.router.navigate([`home`]);
         
       });
   }

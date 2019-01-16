@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { LicenseService } from '../../shared/services/license.service';
 import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
-import { APP_CONFIG, AppConfig } from 'src/app/shared/app.config';
+import { APP_CONFIG, AppConfig } from '../../shared/app.config';
 
 @Component({
   selector: 'app-license',

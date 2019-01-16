@@ -8,6 +8,7 @@ import {DeleteEntryComponent} from './components/delete-word/delete-word.compone
 import {RegisterComponent} from './components/register/register.component';
 import {LoginComponent} from './components/login/login.component';
 import { NewLicenseComponent } from './components/newlicense/newlicense.component';
+import {LoggedOutComponent} from './components/logged-out/logged-out.component';
 import { LicensesComponent } from './components/licenses/licenses.component';
 import { HomeComponent } from './components/home/home.component';
 
@@ -15,6 +16,7 @@ const routes: Routes = [
     { path: '', component: HomeComponent},
     { path: 'home', component: HomeComponent},
     { path: 'auth-callback', component: AuthCallbackComponent },
+    { path: 'logged-out', component: LoggedOutComponent },
     {path:'', component:WordsComponent, canActivate: [AuthGuard]},
     // {path:'words', component:WordsComponent, canActivate: [AuthGuard]},
     // {path:'new-word', component:NewEntryComponent, canActivate: [AuthGuard]},
