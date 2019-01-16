@@ -28,6 +28,7 @@ import { DeleteEntryComponent } from './components/delete-word/delete-word.compo
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthCallbackComponent } from './components/auth-callback/auth-callback.component';
+import { LoggedOutComponent } from './components/logged-out/logged-out.component';
 
 //forms
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
@@ -62,7 +63,8 @@ import { HomeComponent } from './components/home/home.component';
     NewLicenseComponent,
     LicensesComponent,
     AuthCallbackComponent,
-    HomeComponent
+    HomeComponent,
+    LoggedOutComponent
   ],
   imports: [
     BrowserModule,
