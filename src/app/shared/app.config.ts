@@ -24,7 +24,7 @@ export const LiveConfig: AppConfig = {
   
 };
 export const LocalConfig: AppConfig = {
-  apiEndpoint: "https://localhost:44387/api",
+  apiEndpoint: "https://api.tekstsakte.com/api",
   authorityUrl: "https://localhost:44375",
    auth_redirect_uri: 'http://localhost:4200/auth-callback',
   auth_post_logout_redirect_uri: 'http://localhost:4200/logged-out',

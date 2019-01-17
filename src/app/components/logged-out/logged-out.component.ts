@@ -12,8 +12,7 @@ export class LoggedOutComponent implements OnInit {
   constructor(private authService: AuthenticationService,private router:Router,) { }
   
   ngOnInit() {
-      this.authService.completeAuthentication().then(()=>{
-        // var id=prompt("enter user id")
+      this.authService.completeSignout().then(()=>{
         this.router.navigate([`home`]);
         
       });

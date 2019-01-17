@@ -35,6 +35,9 @@ getQueryStringAuthorization():string
   return "?authorization=" + this.getToken();
   
 }
+completeSignout(): Promise<void> {
+  return this.manager.signoutRedirectCallback();
+}
 completeAuthentication(): Promise<void> {
   return this.manager.signinRedirectCallback().then(_user => {
      
