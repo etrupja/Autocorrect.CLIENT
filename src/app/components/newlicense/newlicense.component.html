@@ -20,9 +20,10 @@
       <input matInput placeholder="Numri i përdoruesve" formControlName="maximumUtilizationCount">
     </mat-form-field>
 
-    <div class="alert alert-info" *ngIf="this.licenseForm.value.maximumUtilizationCount > 50">
+    <div class="alert alert-info" *ngIf="this.licenseForm.value.maximumUtilizationCount > 5">
       <span>Ju lutem kontaktoni supportin për të blerë një licensë me {{this.licenseForm.value.maximumUtilizationCount}} përdorues!</span>
+      <!-- <button  mat-raised-button [disabled]="!licenseForm.valid"> Kontakto </button> -->
     </div>
-    <button  mat-raised-button *ngIf="this.licenseForm.value.maximumUtilizationCount <= 50" [disabled]="!licenseForm.valid">Krijo license</button>
+    <button  mat-raised-button *ngIf="this.licenseForm.value.maximumUtilizationCount <= 5" [disabled]="!licenseForm.valid">Krijo license</button>
   </form>
 </mat-card>
